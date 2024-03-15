@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import TodoApp from './Pages/TodoApp';
 import MenuIcon from './Assets/MenuIcon';
 
-
+//NavBar + Router in App Component
 const App = () => {
   return (
     <Router>

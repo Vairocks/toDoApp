@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 
-const Task = ({ task, onComplete, onDrop }) => {
+const Task = ({ task, onEdit, onDrop }) => {  //onEdit is used
     const [edit,setEdit] = useState({});
 
+    //Whenever A task is marked as complete
     const handleComplete = () => {
-        onComplete(task.id,task.title,true);
-        
+        onEdit(task.id,task.title,true);        
     };
 
+    //Whenever a task is dropped
     const handleDrop = () => {
         onDrop(task.id);
     };
+
+    //When a reques to Edit a task to be made
     const doneEditing = (id,title) => {
-        onComplete(id,title,false);
+        onEdit(id,title,false);
         setEdit({});
     }
 
@@ -50,14 +53,14 @@ const Task = ({ task, onComplete, onDrop }) => {
 
 
 
-const TaskList = ({ tasks, onComplete, onDrop }) => {
+const TaskList = ({ tasks, onEdit, onDrop }) => {
     return (
         <div className="mt-4">
             {tasks.map((task, index) => (
                 <Task
                     key={index}
                     task={task}
-                    onComplete={onComplete}
+                    onEdit={onEdit}
                     onDrop={onDrop}
                 />
             ))}

@@ -18,7 +18,7 @@ const AddTaskForm = ({ onAddTask }) => {
         });
         let newTask =response.json();
         if (response.ok) {
-          onAddTask(newTask);
+          onAddTask();
           setTitle('');
         } else {
           console.error('Failed to add task:', response.statusText);
